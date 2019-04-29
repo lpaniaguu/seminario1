@@ -64,9 +64,11 @@
     <br>
 
     <!-- add intro text to the page body -->
-    <div class="summary">
+    <div class="text">
+      <center>
         <h2 class="text-title">Resumen</h2>
-        <div class="text">
+      </center
+      <div class="text">
 El objetivo de este proyecto es observar la posible influencia del consumo de alcohol y otras variables sobre la nota final de cada trimestre de varios institutos.   
 <br>
 <br>
@@ -88,11 +90,75 @@ La historia que quiero transmitir es la observación de la influencia de las dif
             </br>
         </div>
     </div>
+<center>
+<h2 class = "plot-title"> Primera toma de contacto </h2>
+</center>
+<div class="text">
+  Antes de estudiar de forma directa la relación con las variables, se representará, con un heatmap (o diagrama de calor), la relación existente entre las múltiples variables cuantitativas. Estas variables son las que nos interesan y que ya fueron  mencionadas en el resumen. El heatmap reproduce el cuadrado del coeficiente de correlación para cada par de variables y lo dibuja también con una codificación de colores. Por tanto, cuanto mayor sea el índice y más cercano a 1 esté, mayor correlación directa existirá; y cuanto menor sea y más cercano a -1, mayor correlación inversa existirá. Si el índice es 0 no habrá correlación entre las variables. Los colores para ayudan en la visualización. Al final, se tiene una matriz simétrica con los valores de índice de correlación para cada par de variables como se muestra en la siguiente gráfica:
+  
+<br>
+<br>
 
 
+<center>
+  <a href="https://ibb.co/F636ywx"><img src="https://i.ibb.co/rk0kz67/heatmap.png" alt="heatmap" border="0"
+   width="300"
+  height="250"></a><br /><a target='_blank' href='https://es.imgbb.com/'></a><br />
+  Figura 1: Heatmap para las variables.
+</center>
+<br>
+<br>
+Como puede verse, existe una alta correlación entre G1, G2 y G3. Esto es normal pues representaba la nota de los examenes para la asignatura de lengua portuguesa, según los trimestres. Estas tres variables, al tener una correlación tan alta, pueden considerarse que representan la misma variable que podría agruparse en otra final que puede ser la media. Lo interesante en esta gráfica está en observar la correlación existente entre esas variables, las notas, con el resto. Obsérvese que existe una correlación directa entre las notas con el nivel de educación de la madre y del padre (Medu y Fedu, respectivamente), mayor en el caso de la madre; y una correlación también directa con el tiempo de estudio. Obsérvese que existe una correlación inversa en este caso con los suspensos (failures) y destacar también cierta correlación de -0.2 con el número de días semanales en los que se consume alcohol (Dalc). Como puede verse, se extraen las conclusiones de cuanto mayor sea la educación de los padres y mayor número de horas se estudie, mejores serán las notas, la relación es directa. Por el contrario, cuanto más alcohol de forma diaria se consume, peores serán las notas y más los suspensos. 
+<br>
+<br>
 
+Pueden extraerse también conclusiones interesantes como que los padres tienen un nivel educativo bastante relacionado entre sí, o que cuanto mayor sea ese nivel educativo, menos tiempo de vacaciones tiene el alumno (observar Fedu o Medu con traveltime). También destacar la correlación entre Dalc y Walc, los consumos diarios y los fines de semana de alcohol. Esta alta correlación directa se atribuye a la tendencia de la consumición de alcohol diariamente cuando se comienza el fin de semana. Es decir, existe un riesgo de consumo de alcohol diario si se consume los fines de semana, y, además, se dedica incluso menos tiempo al estudio (observar el valor de -0.21 de studytime con Walc).
+<br>
+<br>
+Este diagrama realizado en python ciertamente ayuda en la visualización de una manera muy efectiva para observar las correlaciones entre las diferentes variables cuantitativas, tanto continuas como discretas. Es por ello que para un primer vistazo, se ha utilizado esta visualización.
+<br>
+<br>
 
+<center>
+<h2 class = "plot-title"> Consumo de alcohol </h2>
+</center>
 
-  <a href="https://ibb.co/F636ywx"><img src="https://i.ibb.co/rk0kz67/heatmap.png" alt="heatmap" border="0"></a><br /><a target='_blank' href='https://es.imgbb.com/'></a><br />
+En los siguientes gráficos podemos ver el consumo de alcohol diario y en los fines de semana separando por sexo. El eje horizontal muestra el nivel del 1 al 5, con 1 indicando consumo muy bajo y 5 muy alto.
+<br>
+<br>
 
+<center>
+<a href="https://ibb.co/h1dssDH"><img src="https://i.ibb.co/Kzs66F7/consumo-alcohol.png" alt="consumo-alcohol"
+width="320"
+height="250" border="0"></a>
+<br>
+Figura 2: Consumo de alcohol diario y en los fines de semana, por sexos.
+</center>
+<br>
+<br>
 
+Puede verse claramente que los alumnos consumen más alcohol tanto de forma diaria como en los fines de semana: la proporción para los niveles superiores a 3 es mayor para los alumnos que para las alumnas. 
+
+<br>
+<br>
+En la siguiente gráfica de barras separamos los grupos de edad en los diferentes niveles de consumo de alcohol los fines de semana, por sexo: 
+ <br>
+ <br>
+ <a href="https://ibb.co/sHPTFyd"><img src="https://i.ibb.co/GTJZVc4/edades.png" alt="edades" border="0"></a>
+<br>
+<br>
+
+Vemos que los alumnos, además de beber más, empiezan a edades más tempranas con consideraciones mayores que ellas. Mientras que las barras del sexo femenino van disminuyendo a medida que sube la escala de consumo de alcohol en el fin de semana, para todas las edades, en el caso del sexo masculino se mantiene constante, indicando que ellos comienzan antes a beber mucho.
+
+<br>
+<br>
+Finalmente, esto se traduce en una mayor cantidad de alumnos con cursos repetidos que alumnas e, incluso, una menor proporción de alumnos con notas más altas que alumnas.
+<br>
+<br>
+
+<a href="https://ibb.co/wh88VNJ"><img src="https://i.ibb.co/b5YYTgH/dasboard.png" alt="dasboard" border="0"></a>
+
+<br>
+<br>
+
+En el caso de las notas del segundo cuatrimestre se observa cierta normalidad en la distribución, se realizó, por tanto, un test ANOVA para ver si las medias de los alumnos son significativamente diferentes, diferenciando por sexo. Los resultados fueron estadísticamente significativos con un valor de p=0.0081 y F=7.075. Es decir, los alumnos tienen una nota menor que las alumnas y un mayor riesgo de repetir cursos a causa de un consumo de alcohol alto a edades más tempranas. 
